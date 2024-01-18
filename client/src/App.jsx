@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import Header from "./components/Header";
 import Contact from "./pages/Contact";
 import { useState, useEffect } from "react";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const [isTopOfPage, setIsTopOfPage] = useState(true);
@@ -30,8 +31,10 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

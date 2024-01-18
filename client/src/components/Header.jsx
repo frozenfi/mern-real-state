@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { FaSearch } from "react-icons/fa";
 import { HiBars3, HiXMark } from "react-icons/hi2";
+import { useSelector } from "react-redux";
 
 const Header = (isTopOfPage) => {
+  const { currentUser } = useSelector((state) => state.user);
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -57,11 +59,20 @@ const Header = (isTopOfPage) => {
                     />
                     <FaSearch className="bg-transparent focus:outline-none w-14 ml-1" />
                   </form>
-                  <div className="rounded-md bg-slate-700 text-white px-10 py-2 hover:bg-slate-500 hover:text-white">
-                    <Link to="/sign-in">
-                      <p>Sign in</p>
-                    </Link>
-                  </div>
+
+                  <Link to="/profile">
+                    {currentUser ? (
+                      <img
+                        className="rounded-full h-7 w-7 object-cover"
+                        src={currentUser.avatar}
+                        alt="profile"
+                      />
+                    ) : (
+                      <div className="rounded-md bg-slate-700 text-white px-10 py-2 hover:bg-slate-500 hover:text-white">
+                        <p>Sign in</p>
+                      </div>
+                    )}
+                  </Link>
                 </div>
               </div>
             ) : (
