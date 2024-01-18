@@ -48,7 +48,7 @@ const Header = (isTopOfPage) => {
                 <div className={`${flexBetween} gap-4 md:gap-8`}>
                   <form
                     action=""
-                    className="bg-slate-100 p-2 rounded-lg flex items-center md:mr-4"
+                    className="bg-slate-200 p-2 rounded-lg flex items-center md:mr-4"
                   >
                     <input
                       type="text"
@@ -57,7 +57,7 @@ const Header = (isTopOfPage) => {
                     />
                     <FaSearch className="bg-transparent focus:outline-none w-14 ml-1" />
                   </form>
-                  <div className="rounded-md bg-secondary-100 px-10 py-2 hover:bg-slate-700 hover:text-white">
+                  <div className="rounded-md bg-slate-700 text-white px-10 py-2 hover:bg-slate-500 hover:text-white">
                     <Link to="/sign-in">
                       <p>Sign in</p>
                     </Link>
